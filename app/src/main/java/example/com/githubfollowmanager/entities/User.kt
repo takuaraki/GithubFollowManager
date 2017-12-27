@@ -3,7 +3,7 @@ package example.com.githubfollowmanager.entities
 /**
  * ユーザーのエンティティ
  */
-class User(
+data class User(
         val login: String,
         val id: Int,
         val avatarUrl: String,
