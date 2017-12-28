@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    val TAG = "MainActivity"
+    private val TAG = this::class.java.simpleName
 
     @Inject lateinit var userRepository: UserRepository
 

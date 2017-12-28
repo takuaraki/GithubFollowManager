@@ -10,13 +10,16 @@ import example.com.githubfollowmanager.di.DaggerAppComponent
  */
 class MainApplication : Application() {
 
+    private lateinit var appComponent: AppComponent
+    fun getComponent() = appComponent
+
     override fun onCreate() {
         super.onCreate()
-    }
 
-    fun getComponent(): AppComponent =
-            DaggerAppComponent.builder()
-                    .appModule(AppModule())
-                    .build()
+        appComponent =
+                DaggerAppComponent.builder()
+                        .appModule(AppModule())
+                        .build()
+    }
 
 }
