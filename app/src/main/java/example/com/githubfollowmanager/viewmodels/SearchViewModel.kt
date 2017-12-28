@@ -19,10 +19,10 @@ class SearchViewModel @Inject constructor(
                 userRepository.fetchFollowers(userName),
                 BiFunction
                 { followings, followers ->
-                    val oneSidedFollowings = followings - followers
-                    val oneSidedFollowers = followers - followings
-                    val mutualFollowings = followings - oneSidedFollowings
-                    SearchResult(oneSidedFollowings, oneSidedFollowers, mutualFollowings)
+                    SearchResult(
+                            oneSidedFollowingList = followings - followers,
+                            oneSidedFollowerList = followers - followings,
+                            mutualFollowingList = followings.intersect(followers).toList())
                 }
         )
     }
