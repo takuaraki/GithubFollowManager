@@ -29,9 +29,9 @@ class SearchActivity : AppCompatActivity() {
             searchViewModel.search(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ searchResult ->
+                    .subscribe({
 
-                    }, { error ->
+                    }, {
                         Snackbar.make(
                                 findViewById(android.R.id.content),
                                 R.string.search_error,
