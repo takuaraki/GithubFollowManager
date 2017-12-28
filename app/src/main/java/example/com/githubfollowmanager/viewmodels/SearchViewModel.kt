@@ -1,6 +1,5 @@
 package example.com.githubfollowmanager.viewmodels
 
-import example.com.githubfollowmanager.entities.User
 import example.com.githubfollowmanager.repositories.UserRepository
 import example.com.githubfollowmanager.valueobjects.SearchResult
 import io.reactivex.Observable
@@ -19,7 +18,7 @@ class SearchViewModel @Inject constructor(
                 userRepository.fetchFollowing(userName),
                 userRepository.fetchFollowers(userName),
                 BiFunction
-                { followings: List<User>, followers: List<User> ->
+                { followings, followers ->
                     val oneSidedFollowings = followings - followers
                     val oneSidedFollowers = followers - followings
                     val mutualFollowings = followings - oneSidedFollowings
