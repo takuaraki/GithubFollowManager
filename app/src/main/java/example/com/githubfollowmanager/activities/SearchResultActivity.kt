@@ -17,8 +17,15 @@ import java.util.*
 class SearchResultActivity : AppCompatActivity() {
 
     private lateinit var query: String
+    private lateinit var mutualFollowers: List<User>
+    private lateinit var followings: List<User>
+    private lateinit var followers: List<User>
+
     companion object {
         private val EXTRA_QUERY = "EXTRA_QUERY"
+        private val EXTRA_MUTUAL_FOLLOWERS = "EXTRA_MUTUAL_FOLLOWERS"
+        private val EXTRA_FOLLOWINGS = "EXTRA_FOLLOWINGS"
+        private val EXTRA_FOLLOWERS = "EXTRA_FOLLOWERS"
 
         fun createIntent(context: Context,
                          query: String,
@@ -27,6 +34,9 @@ class SearchResultActivity : AppCompatActivity() {
                          followers: List<User>) =
                 Intent(context, SearchResultActivity::class.java)
                         .putExtra(EXTRA_QUERY, query)
+                        .putParcelableArrayListExtra(EXTRA_MUTUAL_FOLLOWERS, mutualFollowers.toCollection(ArrayList()))
+                        .putParcelableArrayListExtra(EXTRA_FOLLOWINGS, followings.toCollection(ArrayList()))
+                        .putParcelableArrayListExtra(EXTRA_FOLLOWERS, followers.toCollection(ArrayList()))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +45,9 @@ class SearchResultActivity : AppCompatActivity() {
 
         intent.apply {
             query = getStringExtra(EXTRA_QUERY)
+            mutualFollowers = getParcelableArrayListExtra(EXTRA_MUTUAL_FOLLOWERS)
+            followings = getParcelableArrayListExtra(EXTRA_FOLLOWINGS)
+            followers = getParcelableArrayListExtra(EXTRA_FOLLOWERS)
         }
 
         val binding = DataBindingUtil.setContentView(this, R.layout.activity_search_result)
