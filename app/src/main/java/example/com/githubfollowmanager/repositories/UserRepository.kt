@@ -14,16 +14,20 @@ class UserRepository @Inject constructor(
      * 指定されたユーザーがフォローしているユーザーのリストを取得する
      *
      * @param userName ユーザー名
+     * @param page     頁目
+     * @param perPage  件/頁
      * @return 指定されたユーザーがフォローしているユーザーのリスト
      */
-    fun fetchFollowing(userName: String) = githubClient.getFollowing(userName)
+    fun fetchFollowing(userName: String, page: Int, perPage: Int) = githubClient.getFollowing(userName, page, perPage)
 
     /**
      * 指定されたユーザーをフォローしているユーザーのリストを取得する
      *
      * @param userName ユーザー名
+     * @param page     頁目
+     * @param perPage  件/頁
      * @return 指定されたユーザーをフォローしているユーザーのリスト
      */
-    fun fetchFollowers(userName: String) = githubClient.getFollowers(userName)
+    fun fetchFollowers(userName: String, page: Int, perPage: Int) = githubClient.getFollowers(userName, page, perPage)
 
 }
