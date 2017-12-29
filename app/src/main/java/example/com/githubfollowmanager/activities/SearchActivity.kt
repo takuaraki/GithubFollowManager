@@ -27,12 +27,14 @@ class SearchActivity : AppCompatActivity() {
 
         searchButton.setOnClickListener {
             progressBar.visibility = View.VISIBLE
+            searchButton.isEnabled = false
             val userName: String = userNameInputEditText.text.toString()
             searchViewModel.search(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
                         progressBar.visibility = View.GONE
+                        searchButton.isEnabled = true
                     }
                     .subscribe({
 
