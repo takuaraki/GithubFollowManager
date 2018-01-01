@@ -8,7 +8,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import example.com.githubfollowmanager.Constants
+import example.com.githubfollowmanager.BuildConfig
 import example.com.githubfollowmanager.MainApplication
 import example.com.githubfollowmanager.R
 import example.com.githubfollowmanager.viewmodels.SearchViewModel
@@ -67,7 +67,7 @@ class SearchActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.login -> {
-                val url = "https://github.com/login/oauth/authorize?client_id=" + Constants.CLIENT_ID
+                val url = "https://github.com/login/oauth/authorize?client_id=" + BuildConfig.GITHUB_CLIENT_ID
                 val customTabsIntent = CustomTabsIntent.Builder().build()
                 customTabsIntent.launchUrl(this, Uri.parse(url))
             }

@@ -1,6 +1,6 @@
 package example.com.githubfollowmanager.repositories
 
-import example.com.githubfollowmanager.Constants
+import example.com.githubfollowmanager.BuildConfig
 import example.com.githubfollowmanager.repositories.clients.AuthClient
 import javax.inject.Inject
 
@@ -19,8 +19,8 @@ class AuthRepository @Inject constructor(
      */
     fun getAccessToken(code: String) =
             authClient.getAccessToken(
-                    clientId = Constants.CLIENT_ID,
-                    clientSecret = Constants.CLIENT_SECRET,
+                    clientId = BuildConfig.GITHUB_CLIENT_ID,
+                    clientSecret = BuildConfig.GITHUB_CLIENT_SECRET,
                     code = code
             )
 }

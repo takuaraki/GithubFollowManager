@@ -15,7 +15,13 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "GITHUB_CLIENT_ID", "\"${project.property("githubClientId")}\""
+            buildConfigField "String", "GITHUB_CLIENT_SECRET", "\"${project.property("githubClientSecret")}\""
+        }
         release {
+            buildConfigField "String", "GITHUB_CLIENT_ID", "\"${project.property("githubClientId")}\""
+            buildConfigField "String", "GITHUB_CLIENT_SECRET", "\"${project.property("githubClientSecret")}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
