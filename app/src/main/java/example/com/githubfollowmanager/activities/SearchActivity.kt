@@ -37,7 +37,13 @@ class SearchActivity : AppCompatActivity() {
                         searchButton.isEnabled = true
                     }
                     .subscribe({
-
+                        startActivity(SearchResultActivity.createIntent(
+                                context = this,
+                                query = userName,
+                                mutualFollowers = it.mutualFollowingList,
+                                followings = it.oneSidedFollowingList,
+                                followers = it.oneSidedFollowerList
+                        ))
                     }, {
                         Snackbar.make(
                                 findViewById(android.R.id.content),
