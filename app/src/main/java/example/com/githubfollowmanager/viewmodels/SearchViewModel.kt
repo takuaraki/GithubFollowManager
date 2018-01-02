@@ -30,7 +30,5 @@ class SearchViewModel @Inject constructor(
         )
     }
 
-    fun getAccessToken(code: String): Observable<AuthResponse> {
-        return authRepository.getAccessToken(code)
-    }
+    fun getAccessToken(code: String): Observable<AuthResponse> = authRepository.getAccessToken(code)
 }
