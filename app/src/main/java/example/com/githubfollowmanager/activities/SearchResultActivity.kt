@@ -63,12 +63,6 @@ class SearchResultActivity : AppCompatActivity() {
             )
             tabLayout.setupWithViewPager(viewPager)
         }
-
-        binding.viewModel = SearchResultViewModel(query)
-
-        binding.viewPager.adapter = SearchResultPagerAdapter(
-                mutualFollowers, followings, followers, this, supportFragmentManager
-        )
     }
 
 }
