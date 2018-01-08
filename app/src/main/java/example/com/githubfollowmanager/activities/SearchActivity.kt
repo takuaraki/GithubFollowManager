@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import example.com.githubfollowmanager.BuildConfig
 import example.com.githubfollowmanager.MainApplication
 import example.com.githubfollowmanager.R
@@ -44,12 +45,24 @@ class SearchActivity : AppCompatActivity() {
         }
 
         searchButton.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            searchButton.isEnabled = false
             val userName: String = userNameInputEditText.text.toString()
             searchViewModel.search(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .doAfterTerminate {
+                        progressBar.visibility = View.GONE
+                        searchButton.isEnabled = true
+                    }
                     .subscribe({
-
+                        startActivity(SearchResultActivity.createIntent(
+                                context = this,
+                                query = userName,
+                                mutualFollowers = it.mutualFollowingList,
+                                followings = it.oneSidedFollowingList,
+                                followers = it.oneSidedFollowerList
+                        ))
                     }, {
                         Snackbar.make(
                                 findViewById(android.R.id.content),

@@ -28,6 +28,9 @@
                     android:scheme="githubfollowmanager" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.SearchResultActivity"
+            android:theme="@style/AppThemeNoActionbar" />
     </application>
 
 </manifest>
