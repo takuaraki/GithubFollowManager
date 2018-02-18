@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GitHub Follow Manager</string>
+    <string name="app_description">このアプリケーションは、あなたのフォローしているユーザーから、あなたへのおすすめユーザーを表示します。</string>
+
+    <string name="login">GitHub アカウントでログイン</string>
+    <string name="login_failure">ログインに失敗しました 😢</string>
+
+    <string name="search">検索</string>
+    <string name="hint">ユーザーネームを入力して下さい</string>
+    <string name="search_error">ユーザーが見つかりませんでした 😭</string>
+
+    <string name="follow">フォロー</string>
+    <string name="follower">フォロワー</string>
+    <string name="mutual">相互</string>
+</resources>
