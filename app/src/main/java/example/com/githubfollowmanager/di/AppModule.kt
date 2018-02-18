@@ -2,6 +2,7 @@ package example.com.githubfollowmanager.di
 
 import dagger.Module
 import dagger.Provides
+import example.com.githubfollowmanager.repositories.clients.AuthClient
 import example.com.githubfollowmanager.repositories.clients.GithubClient
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -29,4 +30,13 @@ class AppModule constructor() {
                     .build()
                     .create(GithubClient::class.java)
 
+    @Singleton
+    @Provides
+    fun provideAuthClient(okHttpClient: OkHttpClient) =
+            Retrofit.Builder().client(okHttpClient)
+                    .baseUrl("https://github.com/")
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                    .create(AuthClient::class.java)
 }
