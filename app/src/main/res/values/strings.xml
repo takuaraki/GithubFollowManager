@@ -1,11 +1,15 @@
 <resources>
-    <string name="app_name">GithubFollowManager</string>
+    <string name="app_name">GitHub Follow Manager</string>
+    <string name="app_description">This application will recommend users to you from your followings.</string>
 
-    <string name="search">検索</string>
-    <string name="hint">ユーザーネームを入力して下さい</string>
-    <string name="search_error">ユーザーが見つかりませんでした 😭</string>
+    <string name="login">Log in with GitHub</string>
+    <string name="login_failure">Login failure 😢</string>
 
-    <string name="follow">フォロー</string>
-    <string name="follower">フォロワー</string>
-    <string name="mutual">相互</string>
+    <string name="search">Search</string>
+    <string name="hint">Please enter user name</string>
+    <string name="search_error">User not found 😭</string>
+
+    <string name="follow">Follow</string>
+    <string name="follower">Follower</string>
+    <string name="mutual">Mutual</string>
 </resources>
