@@ -1,6 +1,7 @@
 package example.com.githubfollowmanager.di
 
 import dagger.Subcomponent
+import example.com.githubfollowmanager.activities.LoginActivity
 import example.com.githubfollowmanager.activities.SearchActivity
 
 /**
@@ -9,6 +10,7 @@ import example.com.githubfollowmanager.activities.SearchActivity
 @Subcomponent
 interface ActivityComponent {
 
+    fun inject(activity: LoginActivity)
     fun inject(activity: SearchActivity)
 
 }
